@@ -9,6 +9,14 @@ class ClientRepository{
         console.log(error);
        }
     }
+    async edit(id, data){
+       try {
+         const clients=await Client.findByIdAndUpdate(id, data, {new: true});
+         return clients;
+       } catch (error) {
+        console.log(error);
+       }
+    }
 }
 
 export default ClientRepository;
