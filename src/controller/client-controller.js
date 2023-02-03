@@ -56,3 +56,21 @@ export const listClient=async(req,res)=>{
       });
    }
 }
+
+export const deleteClient=async(req,res)=>{
+   try {
+      const response=await clientRepository.destroy(req.params.id);
+      return res.status(201).json({
+         success: true,
+         message: "Successfully deleted a client",
+         data: response
+      });
+   } catch (error) {
+      return res.status(500).json({
+         success: false,
+         message: "Something went wrong",
+         data:{},
+         err: error
+      });
+   }
+}

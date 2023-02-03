@@ -26,10 +26,10 @@ class ClientRepository{
         }
     }
 
-    async destroy(client_id){
+    async destroy(id){
         try {
-           const Client=await Client.findByIdAndRemove(client_id);
-           return Client; 
+           const clients=await Client.findByIdAndRemove(id);
+           return clients; 
         } catch (error) {
             console.log(error);
         }
@@ -37,8 +37,8 @@ class ClientRepository{
 
     async multidestroy(...client_id){
         try {
-            const Client=await Client.deleteMany({client_consultant_id: client_id});
-            return Client; 
+            const clients=await Client.deleteMany({client_consultant_id: client_id});
+            return clients; 
         } catch (error) {
             console.log(error);
         }
