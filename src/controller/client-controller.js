@@ -38,3 +38,21 @@ export const editClient=async(req, res)=>{
       });
    }
 }
+
+export const listClient=async(req,res)=>{
+   try {
+      const response=await clientRepository.getAll(req.body);
+      return res.status(201).json({
+         success: true,
+         message: "Successfully listed all clients",
+         data: response
+      });
+   } catch (error) {
+      return res.status(500).json({
+         success: false,
+         message: "Something went wrong",
+         data:{},
+         err: error
+      });
+   }
+}
