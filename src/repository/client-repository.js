@@ -35,9 +35,9 @@ class ClientRepository{
         }
     }
 
-    async multidestroy(...client_id){
+    async multidestroy(){
         try {
-            const clients=await Client.deleteMany({client_consultant_id: client_id});
+            const clients=await Client.deleteMany();
             return clients; 
         } catch (error) {
             console.log(error);

@@ -38,7 +38,7 @@ const clientSchema=new mongoose.Schema({
         default: Date.now()
     },
     client_consultant_id:{
-        type: String,
+        type: Number,
         required: true
     }
 },{timestamps: true});
